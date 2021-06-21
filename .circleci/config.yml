@@ -1,0 +1,15 @@
+version: 2.1
+
+jobs:
+  build:
+
+    macos:
+      xcode: 12.5.0 # Specify the Xcode version to use
+
+    steps:
+      - checkout
+      - run: bundle install
+      - run: bundle exec fastlane tests
+
+      - store_test_results:
+          path: test_output
